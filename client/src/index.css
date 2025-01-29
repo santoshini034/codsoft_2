@@ -1,0 +1,28 @@
+.body{
+    height: 200vh;
+}
+.Color1{
+    background-color: aqua;
+}
+.Color2{
+    background-color: cornsilk;
+}
+.form-box{
+    border-radius: 2rem;
+    box-shadow: 5px 5px 10px steelblue;
+}
+.form-heading{
+    border-bottom: 2px solid black;
+}
+.bgblue{
+    color:steelblue;
+}
+.bgred{
+    color:red;
+}
+.outer{
+    display: inline-block;
+}
+.cards{
+    width: 18rem;
+}
