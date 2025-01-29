@@ -31,6 +31,11 @@ const Navbar = () => {
     }
   })
 
+  const logout = () => {
+      localStorage.removeItem('auth');
+      handlerror("User Logged out");
+  }
+
 
   if(usertype == "user"){
     return (
@@ -59,10 +64,7 @@ const Navbar = () => {
                           <a class="nav-link" aria-current="page" href="/todo">Todo</a>
                       </li>
                     </ul>
-                  <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
+                    <button class="btn btn-outline-success" onClick={logout}>Logout</button>
               </div>
           </div>
         </nav>
@@ -99,10 +101,7 @@ const Navbar = () => {
                           <a class="nav-link" aria-current="page" href="/team">Team</a>
                       </li>
                     </ul>
-                  <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
+                    <button class="btn btn-outline-success" onClick={logout}>Logout</button>
               </div>
           </div>
         </nav>

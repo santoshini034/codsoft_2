@@ -58,7 +58,7 @@ if(role == "admin"){
        <Navbar/>
        {
          task.map((el) => {
-          if(el.status == "completed"){
+          if(el.status == "complete"){
             return(
               <Cards topic = {el.topic} status = {el.status} priority = {el.priority} team = {el.team} date = {el.date} description = {el.description} id = {el._id}/>
             )

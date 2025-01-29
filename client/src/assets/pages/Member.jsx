@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import {ToastContainer, toast} from 'react-toastify'
+import Cards from "../components/Cards"
 
 const Show = () => {
   //declaration
@@ -12,7 +13,7 @@ const Show = () => {
   let auth = localStorage.getItem('auth');
   let role = localStorage.getItem('frole');
   let [data, setData] = useState({});
-  let [task, setTask] = useState();
+  let [task, setTask] = useState([]);
   const navigate = useNavigate();
 
   //handle error

@@ -10,9 +10,10 @@ const Cards = ({topic, status, priority, team, date, description, id}) => {
 let role = localStorage.getItem('frole')
 const navigate = useNavigate()
 
+
  //useeffect
  useEffect(() =>{
-    axios.post("http://localhost:3000/cards",{auth, role, team}).then((res) => {
+    axios.post("http://localhost:3000/cards",{team}).then((res) => {
         setSTeam(res.data.userarr);
     })
  },[])

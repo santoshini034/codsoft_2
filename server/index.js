@@ -119,6 +119,9 @@ app.post('/addmember', verifyuser,async(req, res) => {
             let id = req.userdata;
             let adm = await Admin.findById(id);
             let mem = await User.findOne({email});
+            if (!mem) {
+              return  res.json({success: false, message: "Member not found"});  
+            }
             adm.teammember.push(mem);
             adm.save();
             let admi = await Admin.findById(id).populate('teammember');
@@ -191,7 +194,6 @@ app.post('/addtask',verifyuser, async(req, res) => {
                 const uid = userna._id;
                 const allotedtask = await Task.findOne({team: new mongoose.Types.ObjectId(uid)})
                 userna.task.push(allotedtask);
-                console.log(userna);
                 await userna.save();
             }
             let userda;
@@ -210,15 +212,16 @@ app.post('/addtask',verifyuser, async(req, res) => {
 })
 
 //cards
-app.post("/cards", verifyuser,async(req, res) => {
+app.post("/cards",async(req, res) => {
     try {
-        let {auth, role, team } = req.body;
+        let team = req.body.team;
         let user;
         let userarr = [];
         for (let i = 0; i < team.length; i++) {
             const id = team[i];
             user = await User.findById(id);
             userarr.push(user);
+
         }
         res.json({success:true, userarr});
     } catch (error) {
@@ -247,7 +250,9 @@ app.post("/dashboard", verifyuser, async(req,res) => {
 app.post("/show/:id", verifyuser, async(req, res) => {
     try {
         const {id} = req.params;
+        console.log("hii");
         const taskdata = await Task.findById(id).populate("team");
+        console.log(taskdata)
         res.json({success:true, taskdata});
     } catch (error) {
         res.json({success: false, message: "A user cannot create a team"});
@@ -264,7 +269,7 @@ app.post("/status/:id", verifyuser, async(req, res) => {
         let taskcomment = await Task.findById(id);
         taskcomment.comment.push(comment);
         taskcomment.save();
-        const taskdata = await Task.findById(id).pupulat("team");
+        const taskdata = await Task.findById(id).populate("team");
         res.json({success:true, taskdata});
     } catch (error) {
         res.json({success: false, message: "A user cannot create a team"});

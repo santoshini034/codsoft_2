@@ -12,7 +12,7 @@ const Show = () => {
   let auth = localStorage.getItem('auth');
   let role = localStorage.getItem('frole');
   let [data, setData] = useState({});
-  let [team, setTeam] = useState();
+  let [team, setTeam] = useState([]);
   let [datacomment, setDatacomment] = useState([]);
   let [status, setStatus] = useState("completed");
   let [comment, setComment] = useState("");
@@ -43,6 +43,7 @@ const Show = () => {
   //useEffect
   useEffect(() => {
     axios.post(`http://localhost:3000/show/${id}`,{auth,role}).then((res) => {
+      console.log(res)
       if(res.data.success == true){
         setData(res.data.taskdata);
         setTeam(res.data.taskdata.team);
@@ -91,7 +92,6 @@ const Show = () => {
           <p className='m-3'><b>Team: </b></p>
           {
             team.map((el) => {
-              console.log(el);
               return(
                 <p className='m-4'>{el.fullname}</p>
               )
@@ -112,7 +112,7 @@ const Show = () => {
             <div class="mb-3">
               <label for="status" class="form-label">Status:</label>
               <select class="form-select" id='status' value={status} onChange={(e) => {setStatus(e.target.value)}} >
-                <option value="completed">Completed</option>
+                <option value="complete">Completed</option>
                 <option value="inprogress">In progress</option>
                 <option value="todo">To do</option>
               </select>
