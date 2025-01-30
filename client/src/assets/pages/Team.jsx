@@ -38,7 +38,7 @@ const navigate = useNavigate();
 
 //useeffect
 useEffect(() => {
-  axios.post("http://localhost:3000/teampage",{auth, role}).then((res) => {
+  axios.post("https://codsoft-2-backend.onrender.com/teampage",{auth, role}).then((res) => {
     if(res.data.success == true){
       setTeamdata(res.data.adm.teammember);
     }else{
@@ -67,7 +67,7 @@ const handleSubmit =(e) => {
   if(email == ""){
     handlerror("Enter email id");
   }else{
-    axios.post('http://localhost:3000/addmember',{auth,role,email}).then((res) => {
+    axios.post('https://codsoft-2-backend.onrender.com/addmember',{auth,role,email}).then((res) => {
       if(res.data.success == true){
         handlesuccess(res.data.message);
         setTeamdata(res.data.admi.teammember);
