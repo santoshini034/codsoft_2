@@ -40,7 +40,7 @@ const Show = () => {
 
   //useEffect
   useEffect(() => {
-    axios.post(`http://localhost:3000/member/${id}`,{auth,role}).then((res) => {
+    axios.post(`https://codsoft-2-backend.onrender.com/member/${id}`,{auth,role}).then((res) => {
       if(res.data.success == true){
         setData(res.data.member);
         setTask(res.data.member.task);
