@@ -42,7 +42,7 @@ const Login = () => {
       handlerror("Enter valid credentials")
     }else{
       try {
-        axios.post("http://localhost:3000/login",{role, email, password}).then((res) => {
+        axios.post("https://codsoft-2-backend.onrender.com/login",{role, email, password}).then((res) => {
           if(res.data.success == true){
             localStorage.setItem('auth', res.data.token);
             localStorage.setItem('frole', res.data.role);
