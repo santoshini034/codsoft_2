@@ -37,7 +37,7 @@ const Todo = () => {
 
   //useeffect
   useEffect(() => {
-    axios.post("http://localhost:3000/dashboard",{auth,role}).then((res) => {
+    axios.post("https://codsoft-2-backend.onrender.com/dashboard",{auth,role}).then((res) => {
       if(res.data.success == true){
         setTask(res.data.userda.task);
       }else{
