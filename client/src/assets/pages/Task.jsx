@@ -45,7 +45,7 @@ const navigate = useNavigate();
 
 //useeffect
 useEffect(() => {
-  axios.post("http://localhost:3000/taskpage",{auth, role}).then((res) => {
+  axios.post("https://codsoft-2-backend.onrender.com/taskpage",{auth, role}).then((res) => {
     if(res.data.success == true){
       setData(res.data.userda);
       setDteam(res.data.userda.teammember);
@@ -72,7 +72,7 @@ const handleSubmit =(e) => {
   if(topic == "" || status == "" ||priority == "" || team == []){
     handlerror("Enter valid credentials");
   }else{
-    axios.post('http://localhost:3000/addtask',{auth, role, team, topic, status, priority, description}).then((res) => {
+    axios.post('https://codsoft-2-backend.onrender.com/addtask',{auth, role, team, topic, status, priority, description}).then((res) => {
       console.log(res);
       if(res.data.success == true){
         handlesuccess(res.data.message);
