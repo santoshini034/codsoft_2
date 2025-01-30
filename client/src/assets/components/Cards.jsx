@@ -13,7 +13,7 @@ const navigate = useNavigate()
 
  //useeffect
  useEffect(() =>{
-    axios.post("http://localhost:3000/cards",{team}).then((res) => {
+    axios.post("https://codsoft-2-backend.onrender.com/cards",{team}).then((res) => {
         setSTeam(res.data.userarr);
     })
  },[])
