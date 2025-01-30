@@ -42,7 +42,7 @@ const Show = () => {
 
   //useEffect
   useEffect(() => {
-    axios.post(`http://localhost:3000/show/${id}`,{auth,role}).then((res) => {
+    axios.post(`https://codsoft-2-backend.onrender.com/show/${id}`,{auth,role}).then((res) => {
       console.log(res)
       if(res.data.success == true){
         setData(res.data.taskdata);
@@ -61,7 +61,7 @@ const Show = () => {
 
   //handlesubmit
   const handleSubmit = () => {
-    axios.post(`http://localhost:3000/status/${id}`,{auth, role, comment, status}).then((res) => {
+    axios.post(`https://codsoft-2-backend.onrender.com/status/${id}`,{auth, role, comment, status}).then((res) => {
       if(res.data.success == true){
         console.log(res.data.taskdata);
         setData(res.data.taskdata);
