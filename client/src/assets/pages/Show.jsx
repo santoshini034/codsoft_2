@@ -14,7 +14,7 @@ const Show = () => {
   let [data, setData] = useState({});
   let [team, setTeam] = useState([]);
   let [datacomment, setDatacomment] = useState([]);
-  let [status, setStatus] = useState("completed");
+  let [status, setStatus] = useState("complete");
   let [comment, setComment] = useState("");
   const navigate = useNavigate();
 
