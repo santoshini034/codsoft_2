@@ -1,2 +1,2 @@
 # codsoft_2
-A project on task manager
+A project on assigning work to the group members and tracking its progress 
